@@ -4,10 +4,16 @@ import requests
 from telegram import Bot
 import schedule
 import time
+import os
+from dotenv import load_dotenv
 
-# ZMIENNE KONFIGURACYJNE
-bot_token = 'YOUR_TELEGRAM_BOT_TOKEN'
-chat_id = 'YOUR_TELEGRAM_CHAT_ID'
+# Wczytanie zmiennych z pliku config.env
+load_dotenv()
+
+bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
+chat_id = os.getenv("TELEGRAM_CHAT_ID")
+
+# Ustawienia bota Telegram
 bot = Bot(token=bot_token)
 
 # Funkcje monitorujące stan serwera
